@@ -7,14 +7,14 @@ MAINTAINER Kyle VanderBeek <kylev@kylev.com>
 # Install Hubot
 RUN \
   npm install -g --production --silent \
-  coffee-script \
-  generator-hubot \
-  yo
+    coffee-script \
+    generator-hubot \
+    yo && \
+  mkdir /hubot && chown node:node /hubot
 
-RUN mkdir /hubot && chown node:node /hubot
-USER node
 WORKDIR /hubot
 
+USER node
 RUN \
   yo --no-insight hubot --name=hubot-container --defaults && \
   rm -f hubot-scripts.json && \

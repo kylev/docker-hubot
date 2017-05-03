@@ -1,10 +1,7 @@
 FROM node:7-alpine
 MAINTAINER Kyle VanderBeek <kylev@kylev.com>
 
-# https://github.com/mhart/alpine-node/issues/27
-# RUN apk add --no-cache make gcc g++ python
-
-# Install Hubot
+# Install Hubot generator
 RUN \
   npm install -g --production --silent \
     coffee-script \
@@ -25,4 +22,3 @@ RUN \
     hubot-xmpp
 
 ENTRYPOINT ["./bin/hubot"]
-# CMD ["--adapter","slack"]

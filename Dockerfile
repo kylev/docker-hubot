@@ -3,7 +3,7 @@ MAINTAINER Kyle VanderBeek <kylev@kylev.com>
 
 # Install Hubot generator
 RUN \
-  apk add --no-cache jq \
+  apk add --no-cache jq && \
   npm install -g --production --silent \
     coffee-script \
     generator-hubot \

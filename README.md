@@ -21,9 +21,9 @@ $ docker run -d --rm --name=mybot \
     --adapter slack
 ```
 
-## Extending the Image
+## As a Base Image
 
-Want to build your own image with hubot-auth added for fine tuned control? Just write your own `Dockerfile`. I've included `[jq](https://stedolan.github.io/jq/)` in the image to simplify handling JSON configs.
+Want to build your own image with a custom script and hubot-auth added for fine tuned control and your own custom script? Just write your own `Dockerfile`. I've included `[jq](https://stedolan.github.io/jq/)` in the image to simplify handling JSON configs.
 
 ``` console
 FROM kylev/hubot:latest
@@ -32,6 +32,8 @@ RUN \
   npm install --save --production --silent hubot-auth && \
   jq '. += ["hubot-auth"]' external-scripts.json > new-scripts.json && \
   mv new-scripts.json external-scripts.json
+
+ADD custom_thingy.coffee /hubot/scripts/
 ```
 
 ## Contributors

@@ -1,11 +1,6 @@
-## Hubot in Docker
+## Hubot
 
-This is a docker image based on
-the [hubot-generator](https://github.com/github/generator-hubot) and
-official [Getting Started](https://hubot.github.com/docs/)
-documentation. It supplements with several adapters to make the
-out-of-box experience easy and serve as a reasonable basis for
-customization.
+This is a Docker image for [Hubot](https://hubot.github.com) based on the [Getting Started](https://hubot.github.com/docs/) documentation and [hubot-generator](https://github.com/github/generator-hubot). It supplements with several JS-only chat adapters to make the out-of-box experience easy and serve as a reasonable basis for customization.
 
 ## Code Example
 
@@ -18,16 +13,9 @@ $ docker run -d --rm --name=mybot \
     --adapter slack
 ```
 
-Show what the library does as concisely as possible, developers should
-be able to figure out **how** your project solves their problem by
-looking at the code example. Make sure the API you are showing off is
-obvious, and that your code is short and concise.
-
 ## Contributors
 
-If you would like to contribute, please follow the existing style and
-write a pull request! Short of that, detailed bug reports are always
-appreciated.
+If you would like to contribute, please follow the existing style and write a pull request! Short of that, detailed bug reports are always appreciated.
 
 ## License
 

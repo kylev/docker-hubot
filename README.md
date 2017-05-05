@@ -16,14 +16,36 @@ Getting up and running with an ephemeral Hubot instance is easy:
 
 ``` console
 $ docker run -d --rm --name=mybot \
-    -e HUBOT_SLACK_TOKEN=xoxb-YOUR-KEY-HERE \
+    -e HUBOT_SLACK_TOKEN=xoxb-YOUR-KEY/HERE \
     kylev/hubot \
     --adapter slack
 ```
 
+Or you can use docker-compose to add persistence by setting a `REDIS_URL` that [hubot-redis-brain](https://github.com/hubot-scripts/hubot-redis-brain) will use.
+
+``` yml
+version: '2'
+services:
+  redis:
+    image: redis
+    volumes:
+      - redis:/data
+  hubot:
+    image: kylev/hubot
+    command: -a slack
+    depends_on:
+      - redis
+    environment:
+      HUBOT_SLACK_TOKEN: xoxb-YOUR-KEY/HERE
+      REDIS_URL: redis://redis
+
+volumes:
+  redis:
+```
+
 ## As a Base Image
 
-Want to build your own image with a custom script and hubot-auth added for fine tuned control and your own custom script? Just write your own `Dockerfile`. I've included `[jq](https://stedolan.github.io/jq/)` in the image to simplify handling JSON configs.
+Want to build your own image with a custom script and hubot-auth added for fine tuned control and your own custom script? Just write your own `Dockerfile`. I've included [`jq`](https://stedolan.github.io/jq/) in the image to simplify handling JSON configs.
 
 ``` console
 FROM kylev/hubot:latest
@@ -38,7 +60,7 @@ ADD custom_thingy.coffee /hubot/scripts/
 
 ## Contributors
 
-If you would like to contribute, please follow the existing style and write a pull request! Short of that, detailed bug reports are always appreciated.
+If you would like to contribute, please write a [pull request](https://github.com/kylev/docker-hubot/pulls)! Short of that, detailed [bug reports](https://github.com/kylev/docker-hubot/issues) are always appreciated.
 
 ## License
 

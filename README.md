@@ -47,7 +47,7 @@ volumes:
 
 Want to build your own image with a custom script and hubot-auth added for fine tuned control and your own custom script? Just write your own `Dockerfile`. I've included [`jq`](https://stedolan.github.io/jq/) in the image to simplify handling JSON configs.
 
-``` console
+``` Dockerfile
 FROM kylev/hubot:latest
 
 RUN \
@@ -56,6 +56,23 @@ RUN \
   mv new-scripts.json external-scripts.json
 
 ADD custom_thingy.coffee /hubot/scripts/
+```
+
+Or maybe you just want your own set of packages
+
+
+``` Dockerfile
+FROM kylev/hubot:latest
+
+ENV HUBOT_HIPCHAT_JID yourvaluehere
+# Set more hubot config env here.
+
+RUN \
+  npm install --save --production --silent \
+    hubot-business-cat hubot-trello hubot-plusplus hubot-mongodb-brain
+COPY my-scripts.json external-scripts.json
+
+CMD ["-a", "hipchat"]
 ```
 
 ## Contributors

@@ -1,5 +1,5 @@
 FROM node:7-alpine
-MAINTAINER Kyle VanderBeek <kylev@kylev.com>
+LABEL maintainer "kylev@kylev.com"
 
 # Install Hubot generator
 RUN \

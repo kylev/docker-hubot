@@ -64,4 +64,4 @@ If you would like to contribute, please write a [pull request](https://github.co
 
 ## License
 
-MIT, probably.
+MIT.

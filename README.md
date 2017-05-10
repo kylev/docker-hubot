@@ -1,14 +1,14 @@
-## Hubot
+# Hubot
 
 This is a Docker image for [Hubot](https://hubot.github.com) based on the [Getting Started](https://hubot.github.com/docs/) documentation and [hubot-generator](https://github.com/github/generator-hubot). It supplements with several JS-only chat adapters to make the out-of-box experience easy and serve as a reasonable basis for customization.
 
 It contains [adapters](https://hubot.github.com/docs/adapters/) for:
 
-* Campfire
-* HipChat
-* Slack
-* Shell
-* XMPP (Jabber)
+* [Campfire](https://hubot.github.com/docs/adapters/campfire/)
+* [HipChat](https://github.com/hipchat/hubot-hipchat)
+* [Slack](https://github.com/slackapi/hubot-slack)
+* [Shell](https://hubot.github.com/docs/adapters/shell/)
+* [XMPP (Jabber)](https://github.com/markstory/hubot-xmpp)
 
 ## Quick Start
 
@@ -58,7 +58,7 @@ RUN \
 ADD custom_thingy.coffee /hubot/scripts/
 ```
 
-Or maybe you just want your own set of packages
+Or maybe you just want something entirely self-contained with your favorite set of plugins.
 
 
 ``` Dockerfile
@@ -81,4 +81,4 @@ If you would like to contribute, please write a [pull request](https://github.co
 
 ## License
 
-MIT.
+See the [LICENSE](LICENSE.md) file for license rights and limitations (MIT).
